@@ -6,17 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3DCAC15A2D0CB25900C145CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DCAC1522D0CB25900C145CB /* Preview Assets.xcassets */; };
+		3DCAC15B2D0CB25900C145CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DCAC1542D0CB25900C145CB /* Assets.xcassets */; };
+		3DCAC15C2D0CB25900C145CB /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAC1552D0CB25900C145CB /* CanvasView.swift */; };
+		3DCAC15D2D0CB25900C145CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAC1562D0CB25900C145CB /* ContentView.swift */; };
+		3DCAC15E2D0CB25900C145CB /* FreeHandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAC1572D0CB25900C145CB /* FreeHandApp.swift */; };
+		3DCAC15F2D0CB25900C145CB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAC1582D0CB25900C145CB /* ViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3D3F88C82CF2FB410088EE29 /* FreeHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DCAC1522D0CB25900C145CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3DCAC1542D0CB25900C145CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DCAC1552D0CB25900C145CB /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		3DCAC1562D0CB25900C145CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3DCAC1572D0CB25900C145CB /* FreeHandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeHandApp.swift; sourceTree = "<group>"; };
+		3DCAC1582D0CB25900C145CB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		3D3F88CA2CF2FB410088EE29 /* FreeHand */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FreeHand;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3D3F88C52CF2FB410088EE29 /* Frameworks */ = {
@@ -32,7 +39,7 @@
 		3D3F88BF2CF2FB410088EE29 = {
 			isa = PBXGroup;
 			children = (
-				3D3F88CA2CF2FB410088EE29 /* FreeHand */,
+				3DCAC1592D0CB25900C145CB /* FreeHand */,
 				3D3F88C92CF2FB410088EE29 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,27 @@
 				3D3F88C82CF2FB410088EE29 /* FreeHand.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3DCAC1532D0CB25900C145CB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAC1522D0CB25900C145CB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3DCAC1592D0CB25900C145CB /* FreeHand */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAC1572D0CB25900C145CB /* FreeHandApp.swift */,
+				3DCAC1582D0CB25900C145CB /* ViewModel.swift */,
+				3DCAC1562D0CB25900C145CB /* ContentView.swift */,
+				3DCAC1552D0CB25900C145CB /* CanvasView.swift */,
+				3DCAC1542D0CB25900C145CB /* Assets.xcassets */,
+				3DCAC1532D0CB25900C145CB /* Preview Content */,
+			);
+			path = FreeHand;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +87,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				3D3F88CA2CF2FB410088EE29 /* FreeHand */,
 			);
 			name = FreeHand;
 			packageProductDependencies = (
@@ -109,6 +134,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DCAC15A2D0CB25900C145CB /* Preview Assets.xcassets in Resources */,
+				3DCAC15B2D0CB25900C145CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DCAC15C2D0CB25900C145CB /* CanvasView.swift in Sources */,
+				3DCAC15D2D0CB25900C145CB /* ContentView.swift in Sources */,
+				3DCAC15E2D0CB25900C145CB /* FreeHandApp.swift in Sources */,
+				3DCAC15F2D0CB25900C145CB /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +289,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,8 +320,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
