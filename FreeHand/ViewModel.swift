@@ -11,19 +11,22 @@ import SwiftUI
 class ViewModel: NSObject, ObservableObject {
     
     @Published var canvasView = TouchHandlablePKCanvasView()
+    @Published var inkType: PKInk.InkType = .pen
     @Published var penColor: Color = .black
     @Published var penWidth: Double = 2
     @Published var rotation: Double = 0
-    @Published var position: CGPoint = .zero
+    @Published var position: CGPoint = .init(x: -100, y: -100)
+    @Published var isLocked: Bool = false
     
     func updateSelectedCell(degrees: Double) {
+        guard !isLocked else { return }
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height
         let padding: CGFloat = 40
         withAnimation {
             switch degrees {
             case 0..<45, 315..<360: //middle trailing
-                rotation = 270
+                rotation = 90
                 position = .init(x: screenWidth - padding, y: screenHeight / 2)
             case 45..<135: //bottom center
                 rotation = 0
@@ -32,7 +35,7 @@ class ViewModel: NSObject, ObservableObject {
                 rotation = 90
                 position = .init(x: padding, y: screenHeight / 2)
             case 225..<315: //top center
-                rotation = 180
+                rotation = 0
                 position = .init(x: screenWidth / 2, y: padding)
             default:
                 break

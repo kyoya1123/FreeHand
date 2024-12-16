@@ -19,11 +19,11 @@ class TouchHandlablePKCanvasView: PKCanvasView {
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, touch.type == .pencil {
-            onTouchBegan?(touch)
-        }
-    }
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first, touch.type == .pencil {
+//            onTouchBegan?(touch)
+//        }
+//    }
 }
 
 struct CanvasView: UIViewRepresentable {
@@ -31,7 +31,7 @@ struct CanvasView: UIViewRepresentable {
     @ObservedObject var viewModel: ViewModel
 
     func makeUIView(context: Context) -> TouchHandlablePKCanvasView {
-        viewModel.canvasView.drawingPolicy = .anyInput
+        viewModel.canvasView.drawingPolicy = .pencilOnly
         viewModel.canvasView.delegate = viewModel
         viewModel.canvasView.backgroundColor = .clear
         viewModel.canvasView.onTouchBegan = { touch in

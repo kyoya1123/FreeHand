@@ -9,6 +9,14 @@ import CompactSlider
 import PencilKit
 import SwiftUI
 
+/*
+ TODO:
+ - 描き始めだけ移動する
+ - 角のUI欲しい
+ -
+ 
+ */
+
 struct ContentView: View {
     
     @ObservedObject var viewModel: ViewModel = .init()
@@ -17,7 +25,7 @@ struct ContentView: View {
         ZStack {
             CanvasView(viewModel: viewModel)
             HStack {
-                CompactSlider(value: $viewModel.penWidth, in: 2...10, scaleVisibility: .hidden, minHeight: 50, enableDragGestureDelayForiOS: false) {
+                CompactSlider(value: $viewModel.penWidth, in: 1...50, scaleVisibility: .hidden, minHeight: 50, enableDragGestureDelayForiOS: false) {
                     Image(systemName: "circle.fill")
                         .font(.system(size: 10))
                     Spacer()
@@ -38,10 +46,11 @@ struct ContentView: View {
             .position(x: viewModel.position.x, y: viewModel.position.y)
         }
         .onPencilSqueeze { phase in
-            if case let .active(value) = phase, let hoverPose = value.hoverPose {
-                viewModel.updateSelectedCell(degrees: hoverPose.azimuth.degrees + 180)
-            } else if case let .ended(value) = phase {
+            if case let .active(value) = phase/*, let hoverPose = value.hoverPose*/ {
+                viewModel.isLocked.toggle()
             }
+//            else if case let .ended(value) = phase {
+//            }
         }
         .statusBar(hidden: true)
         .persistentSystemOverlays(.hidden)
