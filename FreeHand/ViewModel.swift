@@ -11,55 +11,37 @@ import SwiftUI
 class ViewModel: NSObject, ObservableObject {
     
     @Published var canvasView = TouchHandlablePKCanvasView()
-    @Published var widthValue: Double = 2
-    @Published var selectedCell: (row: Int, column: Int)?
-    
-    let rows = 3
-    let columns = 3
-    
-    func isSelected(row: Int, column: Int) -> Bool {
-        if let selectedCell, selectedCell.row == row, selectedCell.column == column {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func isOuterCell(row: Int, column: Int) -> Bool {
-        row == 0 || row == rows - 1 || column == 0 || column == columns - 1
-    }
+    @Published var penColor: Color = .black
+    @Published var penWidth: Double = 2
+    @Published var rotation: Double = 0
+    @Published var position: CGPoint = .zero
     
     func updateSelectedCell(degrees: Double) {
-        DispatchQueue.main.async {
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        let padding: CGFloat = 40
+        withAnimation {
             switch degrees {
-            case 0..<45, 315..<360:
-                self.selectedCell = (row: 1, column: 2)
-            case 45..<135:
-                self.selectedCell = (row: 2, column: 1)
-            case 135..<225:
-                self.selectedCell = (row: 1, column: 0)
-            case 225..<315:
-                self.selectedCell = (row: 0, column: 1)
-//            case 0..<22.5, 337.5..<360:
-//                self.selectedCell = (row: 1, column: 2)
-//            case 22.5..<67.5:
-//                self.selectedCell = (row: 2, column: 2)
-//            case 67.5..<112.5:
-//                self.selectedCell = (row: 2, column: 1)
-//            case 112.5..<157.5:
-//                self.selectedCell = (row: 2, column: 0)
-//            case 157.5..<202.5:
-//                self.selectedCell = (row: 1, column: 0)
-//            case 202.5..<247.5:
-//                self.selectedCell = (row: 0, column: 0)
-//            case 247.5..<292.5:
-//                self.selectedCell = (row: 0, column: 1)
-//            case 292.5..<337.5:
-//                self.selectedCell = (row: 0, column: 2)
+            case 0..<45, 315..<360: //middle trailing
+                rotation = 270
+                position = .init(x: screenWidth - padding, y: screenHeight / 2)
+            case 45..<135: //bottom center
+                rotation = 0
+                position = .init(x: screenWidth / 2, y: screenHeight - padding)
+            case 135..<225: //middle leading
+                rotation = 90
+                position = .init(x: padding, y: screenHeight / 2)
+            case 225..<315: //top center
+                rotation = 180
+                position = .init(x: screenWidth / 2, y: padding)
             default:
-                self.selectedCell = nil
+                break
             }
         }
+    }
+    
+    func updateTool() {
+        canvasView.tool = PKInkingTool(.pen, color: UIColor(penColor), width: penWidth)
     }
     
     func toggleTool() {
@@ -68,7 +50,6 @@ class ViewModel: NSObject, ObservableObject {
         } else {
             canvasView.tool = PKInkingTool(.pen, color: .black, width: 2)
         }
-        
     }
 }
 

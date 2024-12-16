@@ -13,6 +13,7 @@
 		3DCAC15D2D0CB25900C145CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAC1562D0CB25900C145CB /* ContentView.swift */; };
 		3DCAC15E2D0CB25900C145CB /* FreeHandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAC1572D0CB25900C145CB /* FreeHandApp.swift */; };
 		3DCAC15F2D0CB25900C145CB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCAC1582D0CB25900C145CB /* ViewModel.swift */; };
+		3DF6A2982D10084F0012701F /* CompactSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF6A2972D10084F0012701F /* CompactSlider */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF6A2982D10084F0012701F /* CompactSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +92,7 @@
 			);
 			name = FreeHand;
 			packageProductDependencies = (
+				3DF6A2972D10084F0012701F /* CompactSlider */,
 			);
 			productName = FreeHand;
 			productReference = 3D3F88C82CF2FB410088EE29 /* FreeHand.app */;
@@ -119,6 +122,9 @@
 			);
 			mainGroup = 3D3F88BF2CF2FB410088EE29;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3DF6A2962D10084F0012701F /* XCRemoteSwiftPackageReference "CompactSlider" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3D3F88C92CF2FB410088EE29 /* Products */;
 			projectDirPath = "";
@@ -290,8 +296,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -321,8 +327,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -359,6 +365,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DF6A2962D10084F0012701F /* XCRemoteSwiftPackageReference "CompactSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:buh/CompactSlider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DF6A2972D10084F0012701F /* CompactSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DF6A2962D10084F0012701F /* XCRemoteSwiftPackageReference "CompactSlider" */;
+			productName = CompactSlider;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D3F88C02CF2FB410088EE29 /* Project object */;
 }
