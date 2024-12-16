@@ -11,6 +11,7 @@ import SwiftUI
 class ViewModel: NSObject, ObservableObject {
     
     @Published var canvasView = TouchHandlablePKCanvasView()
+    @Published var widthValue: Double = 2
     @Published var selectedCell: (row: Int, column: Int)?
     
     let rows = 3
@@ -31,22 +32,30 @@ class ViewModel: NSObject, ObservableObject {
     func updateSelectedCell(degrees: Double) {
         DispatchQueue.main.async {
             switch degrees {
-            case 0..<22.5, 337.5..<360:
+            case 0..<45, 315..<360:
                 self.selectedCell = (row: 1, column: 2)
-            case 22.5..<67.5:
-                self.selectedCell = (row: 2, column: 2)
-            case 67.5..<112.5:
+            case 45..<135:
                 self.selectedCell = (row: 2, column: 1)
-            case 112.5..<157.5:
-                self.selectedCell = (row: 2, column: 0)
-            case 157.5..<202.5:
+            case 135..<225:
                 self.selectedCell = (row: 1, column: 0)
-            case 202.5..<247.5:
-                self.selectedCell = (row: 0, column: 0)
-            case 247.5..<292.5:
+            case 225..<315:
                 self.selectedCell = (row: 0, column: 1)
-            case 292.5..<337.5:
-                self.selectedCell = (row: 0, column: 2)
+//            case 0..<22.5, 337.5..<360:
+//                self.selectedCell = (row: 1, column: 2)
+//            case 22.5..<67.5:
+//                self.selectedCell = (row: 2, column: 2)
+//            case 67.5..<112.5:
+//                self.selectedCell = (row: 2, column: 1)
+//            case 112.5..<157.5:
+//                self.selectedCell = (row: 2, column: 0)
+//            case 157.5..<202.5:
+//                self.selectedCell = (row: 1, column: 0)
+//            case 202.5..<247.5:
+//                self.selectedCell = (row: 0, column: 0)
+//            case 247.5..<292.5:
+//                self.selectedCell = (row: 0, column: 1)
+//            case 292.5..<337.5:
+//                self.selectedCell = (row: 0, column: 2)
             default:
                 self.selectedCell = nil
             }
