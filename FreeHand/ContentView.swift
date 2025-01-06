@@ -25,7 +25,7 @@ struct ContentView: View {
         ZStack {
             CanvasView(viewModel: viewModel)
             HStack {
-                CompactSlider(value: $viewModel.penWidth, in: 1...50, scaleVisibility: .hidden, minHeight: 50, enableDragGestureDelayForiOS: false) {
+                CompactSlider(value: $viewModel.penWidth, in: 2...16, scaleVisibility: .hidden, minHeight: 50, enableDragGestureDelayForiOS: false) {
                     Image(systemName: "circle.fill")
                         .font(.system(size: 10))
                     Spacer()
@@ -41,16 +41,27 @@ struct ContentView: View {
                     .onChange(of: viewModel.penColor) {
                         viewModel.updateTool()
                     }
+                Button {
+                    viewModel.toggleTool()
+                } label: {
+                    Image(systemName: viewModel.isEraser ? "eraser" : "pencil")
+                        .padding()
+                        .foregroundStyle(.black)
+                        .background(.ultraThinMaterial)
+                        .frame(width: 44, height: 44)
+                        .clipShape(.circle)
+                }
             }
             .rotationEffect(.degrees(viewModel.rotation))
             .position(x: viewModel.position.x, y: viewModel.position.y)
         }
         .onPencilSqueeze { phase in
-            if case let .active(value) = phase/*, let hoverPose = value.hoverPose*/ {
-                viewModel.isLocked.toggle()
+            if case let .active(value) = phase, let hoverPose = value.hoverPose {
+                viewModel.updateSelectedCell(degrees: hoverPose.azimuth.degrees + 180)
             }
-//            else if case let .ended(value) = phase {
-//            }
+        }
+        .onPencilDoubleTap { value in
+            viewModel.toggleTool()
         }
         .statusBar(hidden: true)
         .persistentSystemOverlays(.hidden)
